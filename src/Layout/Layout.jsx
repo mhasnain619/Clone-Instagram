@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { AppBar, Box, CssBaseline, Drawer, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar, Typography, Avatar, Button, Divider } from '@mui/material';
+import { AppBar, Box, CssBaseline, Drawer, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar, Typography, Avatar, Button } from '@mui/material';
 import { GoHomeFill } from 'react-icons/go';
 import { IoSearch } from 'react-icons/io5';
 import { MdExplore } from 'react-icons/md';
@@ -186,34 +186,47 @@ function InstagramUI(props) {
                 </Drawer>
             </Box>
             {/* Main Content */}
-            <Box component="main" sx={{ flexGrow: 1, p: 3, mt: 15, width: { sm: `calc(100% - ${drawerWidth * 2}px)` } }}>
-                {/* Example Post Component */}
-                <Box>
-                    <Typography variant="h6">User Posts</Typography>
-                    {/* Add your posts here */}
-                    <Box sx={{ marginBottom: 2, padding: 2, border: '1px solid #ddd' }}>
-                        <Typography variant="body1">Post Content 1</Typography>
-                    </Box>
-                    <Box sx={{ marginBottom: 2, padding: 2, border: '1px solid #ddd' }}>
-                        <Typography variant="body1">Post Content 2</Typography>
-                    </Box>
-                    {/* Add more posts as needed */}
-                </Box>
+            <Box
+                component="main"
+                sx={{
+                    flexGrow: 1,
+                    mt: 5,
+                    width: { sm: `calc(100% - ${drawerWidth * 2}px)` },
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    // Optionally set a minHeight if you want to ensure vertical centering works even with small content
+                    minHeight: 'calc(100vh - 64px)', // Adjust this value as needed
+                }}
+            >
+                {props.children}
             </Box>
+
             {/* Right Drawer */}
-            <Box component="nav" sx={{ width: 500, flexShrink: 0 }} aria-label="right drawer">
+            <Box
+                component="nav"
+                sx={{
+                    width: { xs: '0px', sm: 400 }, // Width of 0px on mobile, 400px on larger screens
+                    flexShrink: 0,
+                    display: { xs: 'none', sm: 'block' }, // Hide the Box on mobile screens
+                }}
+                aria-label="right drawer"
+            >
                 <Drawer
                     variant="permanent"
                     anchor="right"
                     open
                     sx={{
-                        display: { xs: 'none', sm: 'block' },
-                        '& .MuiDrawer-paper': { width: 400 },
+                        display: { xs: 'none', sm: 'block' }, // Hide Drawer on mobile screens
+                        '& .MuiDrawer-paper': {
+                            width: { xs: '0px', sm: 400 }, // Width of 0px on mobile, 400px on larger screens
+                        },
                     }}
                 >
                     {rightDrawer}
                 </Drawer>
             </Box>
+
         </Box>
     );
 }
