@@ -97,34 +97,27 @@ function InstagramUI(props) {
             </List>
         </Box>
     );
+
     const stories = [
         { id: 1, src: 'profile1.jpg', alt: 'Profile 1' },
         { id: 2, src: 'profile2.jpg', alt: 'Profile 2' },
         { id: 3, src: 'profile3.jpg', alt: 'Profile 3' },
-        { id: 4, src: 'profile3.jpg', alt: 'Profile 4' },
-        { id: 5, src: 'profile3.jpg', alt: 'Profile 5' },
-        { id: 6, src: 'profile3.jpg', alt: 'Profile 6' },
-        { id: 7, src: 'profile3.jpg', alt: 'Profile 7' },
-        { id: 8, src: 'profile3.jpg', alt: 'Profile 8' },
-        { id: 9, src: 'profile3.jpg', alt: 'Profile 9' },
-        { id: 10, src: 'profile3.jpg', alt: 'Profile 10' },
-        { id: 11, src: 'profile3.jpg', alt: 'Profile 11' },
-        { id: 12, src: 'profile3.jpg', alt: 'Profile 12' },
-        { id: 12, src: 'profile3.jpg', alt: 'Profile 12' },
-        { id: 12, src: 'profile3.jpg', alt: 'Profile 12' },
-        { id: 12, src: 'profile3.jpg', alt: 'Profile 12' },
-        { id: 12, src: 'profile3.jpg', alt: 'Profile 12' },
-        { id: 12, src: 'profile3.jpg', alt: 'Profile 12' },
-        { id: 12, src: 'profile3.jpg', alt: 'Profile 12' },
-        // Add more story items as needed
+        { id: 4, src: 'profile4.jpg', alt: 'Profile 4' },
+        { id: 5, src: 'profile5.jpg', alt: 'Profile 5' },
+        { id: 6, src: 'profile6.jpg', alt: 'Profile 6' },
+        { id: 7, src: 'profile7.jpg', alt: 'Profile 7' },
+        { id: 8, src: 'profile8.jpg', alt: 'Profile 8' },
+        { id: 9, src: 'profile9.jpg', alt: 'Profile 9' },
+        { id: 10, src: 'profile10.jpg', alt: 'Profile 10' },
+        { id: 11, src: 'profile11.jpg', alt: 'Profile 11' },
+        { id: 12, src: 'profile12.jpg', alt: 'Profile 12' },
     ];
+
     return (
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
             {/* AppBar */}
-            {/* {sm: `calc(100% - ${drawerWidth}px)` }, ml: {sm: `${drawerWidth}px` } */}
-
-            <AppBar sx={{ backgroundColor: "#fff", boxShadow: "none", }}>
+            <AppBar sx={{ backgroundColor: "#fff", boxShadow: "none" }}>
                 <Toolbar>
                     <IconButton color="inherit" aria-label="open drawer" edge="start" onClick={handleDrawerToggle} sx={{ backgroundColor: "green", display: { sm: 'none' } }}>
                         <MenuIcon />
@@ -167,13 +160,12 @@ function InstagramUI(props) {
             </AppBar>
             {/* Left Drawer */}
             <Box component="nav" sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }} aria-label="left drawer">
-                {/* Temporary Drawer for mobile */}
                 <Drawer
                     variant="temporary"
                     open={mobileOpen}
                     onClose={handleDrawerToggle}
                     ModalProps={{
-                        keepMounted: true, // Better open performance on mobile
+                        keepMounted: true,
                     }}
                     sx={{
                         display: { xs: 'block', sm: 'none' },
@@ -182,7 +174,6 @@ function InstagramUI(props) {
                 >
                     {leftDrawer}
                 </Drawer>
-                {/* Permanent Drawer for desktop */}
                 <Drawer
                     variant="permanent"
                     sx={{
@@ -195,8 +186,19 @@ function InstagramUI(props) {
                 </Drawer>
             </Box>
             {/* Main Content */}
-            <Box component="main" sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth * 2}px)` } }}>
-                {/* Content will go here */}
+            <Box component="main" sx={{ flexGrow: 1, p: 3, mt: 15, width: { sm: `calc(100% - ${drawerWidth * 2}px)` } }}>
+                {/* Example Post Component */}
+                <Box>
+                    <Typography variant="h6">User Posts</Typography>
+                    {/* Add your posts here */}
+                    <Box sx={{ marginBottom: 2, padding: 2, border: '1px solid #ddd' }}>
+                        <Typography variant="body1">Post Content 1</Typography>
+                    </Box>
+                    <Box sx={{ marginBottom: 2, padding: 2, border: '1px solid #ddd' }}>
+                        <Typography variant="body1">Post Content 2</Typography>
+                    </Box>
+                    {/* Add more posts as needed */}
+                </Box>
             </Box>
             {/* Right Drawer */}
             <Box component="nav" sx={{ width: 500, flexShrink: 0 }} aria-label="right drawer">
